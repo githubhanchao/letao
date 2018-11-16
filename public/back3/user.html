@@ -59,6 +59,26 @@
         <li class="active">首页</li>
       </ol>
 
+      <div class="lt_content">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>序号</th>
+              <th>用户名</th>
+              <th>手机号</th>
+              <th>状态</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+
+
+      </div>
+
+
 
     </div>
 
@@ -89,6 +109,30 @@
 
 
 
+    <!-- 准备模板
+     1. type="text/template"
+     2. type="text/html"
+     都是标记当成 script 标签中存储的是 html 模板
+-->
+  <script type="text/html" id="tmp">
+    {{ each rows v i }}
+      <tr>
+        <td>{{ v.id }}</td>
+        <td>{{ v.username }}</td>
+        <td>{{ v.mobile }}</td>
+        <td>{{ v.isDelete===1 ? '正常' : '已禁用' }}</td>
+        <td>
+          {{ if v.isDelete === 1 }}
+            <button class="btn btn-danger">禁用</button>
+          {{ else }}
+            <button class="btn btn-success">启用</button>
+          {{ /if }}
+        </td>
+      </tr>
+    {{ /each }}
+  
+  </script>
+
 
 
 
@@ -101,12 +145,12 @@
   <script src="./lib/jquery/jquery.min.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+  <script src="./lib/artTemplate/template-web.js"></script>
   <script src="./lib/nprogress/nprogress.js"></script>
-  <script src="./lib/echarts/echarts.min.js"></script>
   <script src="./js/common.js"></script>
   <!-- 判断用户是否登录 -->
   <script src="./js/isLogin.js"></script>
-  <script src="./js/index.js"></script>
+  <script src="./js/user.js"></script>
 </body>
 
 </html>

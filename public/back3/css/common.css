@@ -17,10 +17,11 @@ ul {
 }
 
 .table.table-bordered th,
-.table.table-bordered tb {
+.table.table-bordered td {
   text-align: center;
   vertical-align: middle;
 }
+
 
 
 
