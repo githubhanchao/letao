@@ -1,3 +1,26 @@
+// 进度条
+// 开启进度条
+$(document).ajaxStart(function(){
+
+  // 开启进度条
+  NProgress.start();
+});
+$(document).ajaxStop(function(){
+
+  setTimeout(function(){
+     // 关闭进度条
+    NProgress.done();
+  },500)
+ 
+});
+
+
+
+
+
+
+
+
 $(function(){
 
   // 功能1: 导航点击切换功能
