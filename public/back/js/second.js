@@ -1,3 +1,5 @@
+
+
 $(function(){
   // 1. 一进入页面, 发送请求, 获取数据进行渲染
   var currentPage = 1;
@@ -160,7 +162,40 @@ $(function(){
 
 
 
-  })
+  });
+
+
+
+  // 6. 注册表单校验成功事件, 阻止默认的表单提交, 通过 ajax 提交
+  $('#form').on('success.form.bv',function(e){
+    e.preventDefault();
+
+    $.ajax({
+      type:'post',
+      url: '/category/addSecondCategory',
+      data: $('#form').serialize(),
+      success: function(info){
+        if(info.success){
+          $('#addModal').modal('hide');
+          currentPage = 1;
+          render();
+
+          $('#form').data('bootstrapValidator').resetForm(true);
+          $('#dropdownText').text("请选择一级分类");
+          $('#imgBox img').attr('src','./images/none.png');
+
+
+        }
+
+
+      }
+
+
+    });
+
+
+
+  });
 
 
 
