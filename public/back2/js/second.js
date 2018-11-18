@@ -86,7 +86,7 @@ $(function () {
     dataType: "json",
     // 表示文件上传完成的回调函数
     done: function (e, data) {
-      console.log(data);
+      // console.log(data);
       // 后台返回的结果
       var result = data.result;
       // 获取文件上传的地址
@@ -142,6 +142,42 @@ $(function () {
         }
       }
     }
-  })
+  });
+
+
+  // 6. 注册表单校验成功事件, 阻止默认的表单提交, 通过 ajax 提交
+  $('#form').on('success.form.bv', function(e){
+    e.preventDefault();
+
+    $.ajax({
+      type:'post',
+      url: '/category/addSecondCategory',
+      data: $('#form').serialize(),
+      success: function(info){
+        if(info.success){
+          $('#addModal').modal("hide");
+          currentPage = 1;
+          render();
+
+          // 需要重置内容 和 校验状态
+          $('#form').data('bootstrapValidator').resetForm(true);
+
+          // 由于按钮 和 图片不是表单元素, 需要手动重置
+          $('#dropdownText').text("请选择一级分类");
+
+          // 图片重置
+          $('#imgBox img').attr("src", "./images/none.png");
+
+
+        }
+
+
+      }
+
+
+    })
+
+
+  });
 
 })
