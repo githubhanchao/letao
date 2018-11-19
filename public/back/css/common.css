@@ -15,7 +15,9 @@ ul {
   text-align: center;
   vertical-align: middle;
 }
-
+textarea{
+  resize:none;
+}
 
 
 
