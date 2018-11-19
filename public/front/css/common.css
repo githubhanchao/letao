@@ -1,4 +1,4 @@
-html,body {
+html, body {
   width: 100%;
   height: 100%;
 }
@@ -6,6 +6,11 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+img {
+  display: block;
+  width: 100%;
 }
 
 .lt_container {
@@ -20,7 +25,6 @@ ul {
 
   padding-top: 45px;
   padding-bottom: 55px;
-
 }
 
 .lt_header {
@@ -53,9 +57,10 @@ ul {
   font-size: 20px;
   color: #fff;
   line-height: 45px;
-  font-weight: 400;
+  font-weight: normal;
   margin: 0;
 }
+
 
 .lt_footer {
   position: absolute;
@@ -71,9 +76,13 @@ ul {
   text-align: center;
 }
 .lt_footer li a {
-  color: #fff;
-  display: block;
   padding-top: 8px;
+  display: block;
+  color: #fff;
+}
+.lt_footer li a p {
+  margin: 0;
+  color: #fff;
 }
 .lt_footer li a.current {
   color: orange;
@@ -81,27 +90,65 @@ ul {
 .lt_footer li a.current p {
   color: orange;
 }
-.lt_footer li a p {
-  color: #fff;
-  margin: 0;
-}
+
 
 .lt_main {
   width: 100%;
   height: 100%;
+  background-color: #fff;
   /* 由于 mui 的区域滚动是基于定位实现的, 父元素要有定位 */
   position: relative;
-  background-color: skyblue;
 }
 
 
-.lt_nav {
+
+
+
+
+/* 公共的产品模块样式 */
+.lt_product {
   padding: 10px;
+  text-align: center;
+
 }
-.lt_nav li {
+.lt_product_item {
   float: left;
-  width: 33.3%;
+  width: 48%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
 }
-.lt_nav li a {
-  display: block;
+.lt_product_item:nth-child(2n-1) {
+  margin-right: 4%;
 }
+.lt_product_item .price {
+  color: #e92322;
+}
+.lt_product_item .oldPrice {
+  text-decoration: line-through;
+}
+
+
+
+/* 公共的搜索框模块样式 */
+.lt_search {
+  padding: 10px;
+  position: relative;
+}
+.lt_search .search_input {
+  height: 35px;
+  font-size: 12px;
+  margin: 0;
+  border: 1px solid #479FFF;
+  border-radius: 5px;
+}
+.lt_search .search_btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border-radius: 0 5px 5px 0;
+}
+
+
+
+
