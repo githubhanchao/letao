@@ -9,3 +9,30 @@ mui('.mui-scroll-wrapper').scroll({
   deceleration: 0.0005,
   indicators: false   //是否显示滚动条
 });
+
+
+// 此方法专门用于解析获取地址栏参数
+function getSearch(k){
+  // 获取地址栏参数信息
+  var str = location.search;
+  // 对中文解码
+  str = decodeURI(str);
+
+  // 去掉问号
+  str = str.slice(1);
+
+  // str.split( 字符 ); 可以将字符串切割成数组
+  var arr = str.split('&');
+
+  var obj = {};
+
+  arr.forEach(function(v,i){
+    var key = v.split('=')[0];
+    var value = v.split('=')[1];
+    obj[key] = value;
+
+  })
+
+  return obj[k];
+
+}
